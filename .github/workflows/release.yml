@@ -1,0 +1,58 @@
+name: Release
+
+# Triggers:
+# - Push a tag like v1.0.0, v1.2.3, etc. -> zips extension/ and publishes
+#   a GitHub Release with the zip attached.
+# - Manual run from the Actions tab (workflow_dispatch) for testing.
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read version from manifest.json
+        id: manifest
+        run: |
+          VERSION=$(node -pe "require('./extension/manifest.json').version")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Sanity check tag matches manifest version (tag pushes only)
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          MANIFEST_VERSION="${{ steps.manifest.outputs.version }}"
+          if [ "$TAG_VERSION" != "$MANIFEST_VERSION" ]; then
+            echo "::error::Tag ($GITHUB_REF_NAME) does not match manifest.json version ($MANIFEST_VERSION)."
+            exit 1
+          fi
+
+      - name: Set release filename
+        id: vars
+        run: |
+          echo "zip_name=bypass-perplexity-popup-v${{ steps.manifest.outputs.version }}.zip" >> "$GITHUB_OUTPUT"
+
+      - name: Zip the extension folder
+        # cd into extension/ so the zip contains manifest.json, popup.html,
+        # etc. at its root (what "Load unpacked" and the Chrome Web Store
+        # both expect) instead of nesting everything under extension/.
+        run: |
+          cd extension
+          zip -r "../${{ steps.vars.outputs.zip_name }}" . -x ".*"
+
+      - name: Create GitHub Release and upload asset
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name || format('v{0}', steps.manifest.outputs.version) }}
+          name: v${{ steps.manifest.outputs.version }}
+          generate_release_notes: true
+          files: ${{ steps.vars.outputs.zip_name }}
