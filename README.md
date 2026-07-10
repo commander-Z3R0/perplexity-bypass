@@ -11,7 +11,6 @@ extension only acts when **you** click its icon and press the button.
 
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://github.com/commander-z3r0) 
 ![Manifest V3](https://img.shields.io/badge/Manifest-V3-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
 
 Perplexity periodically shows a full-screen "Sign up to unlock the full
 potential of Perplexity" modal with a blurred backdrop that blocks reading
@@ -105,6 +104,3 @@ element(s)."* or *"No modal found on this page."*).
 - Not affiliated with or endorsed by Perplexity AI.
 - I AM NOT RESPONSIBLE FOR YOUR USE OF THIS !
 
-## License
-
-[MIT](LICENSE)
