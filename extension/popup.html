@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bypass Perplexity Popup</title>
+  <style>
+    body {
+      margin: 0;
+      width: 260px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #1e1e1e;
+      color: #f2f2f2;
+    }
+
+    .wrap {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    h1 {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    p {
+      font-size: 12px;
+      color: #b3b3b3;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    button {
+      appearance: none;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      background: #2f2f2f;
+      color: #f2f2f2;
+      transition: background 0.15s ease;
+    }
+
+    button:hover {
+      background: #3d3d3d;
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    #status {
+      font-size: 12px;
+      min-height: 16px;
+      color: #8fd18f;
+    }
+
+    #status.error {
+      color: #e08a8a;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Bypass Perplexity Popup</h1>
+    <p>Press the button below to remove the login/signup modal from the current Perplexity tab.</p>
+    <button id="removeBtn">Remove DOM/Login</button>
+    <div id="status"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
