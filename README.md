@@ -6,7 +6,7 @@ Perplexity.ai shows on top of the page — on demand, with a single click.
 No auto-injection, no background scripts running on every page load: the
 extension only acts when **you** click its icon and press the button.
 
-[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://github.com/commander-z3r0?tab=repositories) 
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://github.com/commander-z3r0) 
 ![Manifest V3](https://img.shields.io/badge/Manifest-V3-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
