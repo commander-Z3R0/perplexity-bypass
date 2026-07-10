@@ -1,4 +1,5 @@
-# Bypass Perplexity Popup
+<img alt="logo" align="left" width="200" height="200" src="https://raw.githubusercontent.com/commander-Z3R0/Bypass-perplexity-popup/refs/heads/main/extension/icon128.png">
+<h1>Bypass Perplexity Popup</h1>
 
 A tiny Chrome/Edge/Brave extension that removes the login/signup modal that
 Perplexity.ai shows on top of the page — on demand, with a single click.
@@ -6,11 +7,11 @@ Perplexity.ai shows on top of the page — on demand, with a single click.
 No auto-injection, no background scripts running on every page load: the
 extension only acts when **you** click its icon and press the button.
 
+## What it does
+
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://github.com/commander-z3r0) 
 ![Manifest V3](https://img.shields.io/badge/Manifest-V3-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-
-## What it does
 
 Perplexity periodically shows a full-screen "Sign up to unlock the full
 potential of Perplexity" modal with a blurred backdrop that blocks reading
