@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Bypass Perplexity Popup",
+  "version": "2.0.0",
+  "description": "Click the extension icon, then press a button to remove the login/signup modal on Perplexity.",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": [
+    "*://*.perplexity.ai/*",
+    "*://*.perplexity.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
+}
